@@ -57,10 +57,10 @@ gulp.task('browserSync', function () {
 
 // Prepare publish
 gulp.task('cleanup', function () {
-  return gulp.src(['publish', 'css'], {read: false})
+  return gulp.src(['build', 'css'], {read: false})
     .pipe(clean())
 })
-gulp.task('publish', ['cleanup', 'css:compile'], function () {
+gulp.task('build', ['cleanup', 'css:compile'], function () {
 
   gulp.src([
     './css/*.css',
@@ -70,17 +70,17 @@ gulp.task('publish', ['cleanup', 'css:compile'], function () {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./publish/css'))
+    .pipe(gulp.dest('./build/css'))
 
   gulp.src([
     './index.html'
   ])
-    .pipe(gulp.dest('./publish'))
+    .pipe(gulp.dest('./build'))
 
   gulp.src([
     './img/*.jpg'
   ])
-    .pipe(gulp.dest('./publish/img'))
+    .pipe(gulp.dest('./build/img'))
 
 })
 
