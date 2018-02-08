@@ -57,7 +57,7 @@ gulp.task('browserSync', function () {
 
 // Prepare publish
 gulp.task('cleanup', function () {
-  return gulp.src(['build', 'css'], {read: false})
+  return gulp.src(['dist', 'css'], {read: false})
     .pipe(clean())
 })
 gulp.task('build', ['cleanup', 'css:compile'], function () {
@@ -70,17 +70,17 @@ gulp.task('build', ['cleanup', 'css:compile'], function () {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./build/css'))
+    .pipe(gulp.dest('./dist/css'))
 
   gulp.src([
     './index.html'
   ])
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./dist'))
 
   gulp.src([
     './img/*.jpg'
   ])
-    .pipe(gulp.dest('./build/img'))
+    .pipe(gulp.dest('./dist/img'))
 
 })
 
