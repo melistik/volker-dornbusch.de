@@ -73,7 +73,8 @@ gulp.task('build', ['cleanup', 'css:compile'], function () {
     .pipe(gulp.dest('./dist/css'))
 
   gulp.src([
-    './index.html'
+    './index.html',
+    './fonts'
   ])
     .pipe(gulp.dest('./dist'))
 
